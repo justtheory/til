@@ -1,8 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import iView from 'view-design';
+import locale from 'view-design/dist/locale/en-US'
 
 Vue.use(VueRouter);
+Vue.use(iView, {locale: locale});
 
 const routes = [
   {

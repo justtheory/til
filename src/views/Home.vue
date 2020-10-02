@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Navbar v-bind:style="aboutMe"/>
+    <p> {{tils[0].til}} </p>
+    <p>{{customers[0].id}}</p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Navbar  from "@/components/NavBar.vue";
+import {mapState} from 'vuex';
 
-export default {
+export default {  
   name: "Home",
   components: {
-    HelloWorld
+    Navbar,
+  },
+  data: function(){
+    return {
+      aboutMe: {
+        backgroundColor: "#000aaa"
+      } 
+    }
+  },
+  computed: {
+    ...mapState(['tils', 'customers'])
   }
 };
 </script>
+
+<style scoped>
+</style>
